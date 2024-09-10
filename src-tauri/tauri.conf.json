@@ -4,10 +4,10 @@
     "beforeBuildCommand": "npm run generate",
     "beforeDevCommand": "npm run dev",
     "devPath": "http://localhost:3000",
-    "distDir": "../output/public"
+    "distDir": "../.output/public"
   },
   "package": {
-    "productName": "pos-system",
+    "productName": "Heysh Group POS",
     "version": "0.1.0"
   },
   "tauri": {
@@ -29,7 +29,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "identifier": "com.heysh-group-pos.dev",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
@@ -58,8 +58,9 @@
         "fullscreen": false,
         "height": 600,
         "resizable": true,
-        "title": "HEYSH GROUP",
-        "width": 800
+        "title": "HEYSH GROUP POS",
+        "width": 800,
+        "minWidth": 500
       }
     ]
   }
