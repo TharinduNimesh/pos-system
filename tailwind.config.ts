@@ -9,7 +9,15 @@ module.exports = {
     "./error.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "primary-bkg": "rgb(var(--primary-bkg) / <alpha-value>)",
+        "secondary-bkg": "rgb(var(--secondary-bkg) / <alpha-value>)",
+      },
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+      }
+    },
   },
   plugins: [],
 };

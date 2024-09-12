@@ -57,7 +57,7 @@ async function onSubmit(event: FormSubmitEvent<SignInSchemaType>) {
       <div
         class="relative hidden lg:block h-full bg-[url(/img/login.webp)] bg-cover bg-center rounded-r-lg"
       >
-        <div class="absolute w-full h-full bg-black/50"></div>
+        <div class="absolute w-full h-full bg-black/30"></div>
       </div>
     </div>
   </div>
