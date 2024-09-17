@@ -59,8 +59,7 @@
         "height": 600,
         "resizable": true,
         "title": "HEYSH GROUP POS",
-        "width": 800,
-        "minWidth": 500
+        "width": 800
       }
     ]
   }
