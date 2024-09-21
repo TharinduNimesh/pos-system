@@ -61,14 +61,14 @@ const routes = [
 
 <template>
   <div
-    class="w-full md:w-[300px] absolute md:relative flex h-screen p-4 md:pr-0 z-50"
+    class="no-scrollbar w-full md:w-[300px] absolute md:relative flex h-screen p-4 md:pr-0 z-50"
     :class="{
       '-ml-[100%] md:ml-0 md:!w-[100px]': !sidebarStore.isOpen,
       'sidebar-open': sidebarStore.isOpen,
     }"
   >
     <div
-      class="w-full bg-secondary-bkg rounded-xl shadow border border-secondary-bkg dark:border-slate-900 dark:shadow-black overflow-y-scroll"
+      class="w-full bg-secondary-bkg rounded-xl shadow border border-secondary-bkg dark:border-slate-900 dark:shadow-black overflow-y-scroll no-scrollbar"
     >
       <div class="w-full flex pt-5 px-5 items-center justify-between">
         <div class="flex gap-5">

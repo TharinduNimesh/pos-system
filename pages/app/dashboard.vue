@@ -283,10 +283,7 @@ const latestSales = [
                 >
                   Latest Sells
                 </h3>
-                <UTable
-                  :columns="latestSalesColumns"
-                  :rows="latestSales"
-                />
+                <UTable :columns="latestSalesColumns" :rows="latestSales" />
               </div>
             </UContent>
           </div>
