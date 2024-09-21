@@ -68,7 +68,7 @@ const selected = ref(Role[0])
             </div>
 
             <div class="flex justify-end mt-4 gap-6">
-              <UButton color="gray" variant="outline">Clear</UButton>
+              <UButton color="gray">Clear</UButton>
               <UButton variant="solid">Add User</UButton>
             </div>
           </UContent>
