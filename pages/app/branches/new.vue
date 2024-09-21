@@ -13,7 +13,7 @@
                 </h3>
               </div>
             </div>
-            <div class="grid grid-cols-2 gap-6 mt-6">
+            <div class="grid lg:grid-cols-2 grid-cols-1 gap-6 mt-6">
               <UFormGroup label="Branch Name">
                 <UInput
                   placeholder="Branch Name"
@@ -27,7 +27,8 @@
                   icon="solar:user-circle-bold"
                 />
               </UFormGroup>
-              <div class="col-span-2 ">
+            </div>
+              <div class="col-span-2 mt-6">
                 <div class="grid gap-6">
                 <UFormGroup label="Address">
                   <UInput placeholder="Address" icon="icomoon-free:location" />
@@ -40,7 +41,8 @@
                 </UFormGroup>
               </div>
               </div>
-              <UFormGroup label="Contact Number">
+              <div class="grid lg:grid-cols-2 grid-cols-1 gap-6 mt-6">
+                <UFormGroup label="Contact Number">
                 <UInput
                   placeholder="011- XXXXXXX"
                   icon="material-symbols-light:phone-enabled-sharp"
@@ -52,10 +54,9 @@
                   icon="material-symbols-light:calendar-clock"
                 />
               </UFormGroup>
-            </div>
-            
+              </div>
               <div class="flex justify-end mt-4 gap-6">
-              <UButton  color="red" variant="outline">Clear</UButton>
+              <UButton  color="gray" variant="outline">Clear</UButton>
               <UButton  variant="solid">Save Branch</UButton>
             </div>
 
