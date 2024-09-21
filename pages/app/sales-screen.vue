@@ -23,7 +23,9 @@ const productSearchMethod = ref(0);
 const isChangeStockModalOpen = ref(false);
 const isDiscountModalOpen = ref(false);
 const selectedStock = ref(2);
-const selectedBillingAction = ref<typeof billingOptions[0]>(billingOptions[BillingAction.ContinueWithoutBill]);
+const selectedBillingAction = ref<(typeof billingOptions)[0]>(
+  billingOptions[BillingAction.ContinueWithoutBill]
+);
 
 const selectedProductColumns = [
   {
@@ -262,7 +264,9 @@ const productListAction = [
 
         <UContent class="xl:col-span-2 h-[600px]">
           <div class="flex h-full flex-col justify-between">
-            <div class="flex-1 flex flex-col overflow-y-scroll">
+            <div
+              class="flex-1 flex flex-col overflow-y-hidden overflow-x-hidden"
+            >
               <div class="flex justify-between items-center">
                 <h3
                   class="text-lg uppercase text-gray-800 dark:text-gray-200 font-semibold"
@@ -270,7 +274,7 @@ const productListAction = [
                   Products List
                 </h3>
 
-                <div class="flex gap-3">
+                <div class="sm:flex gap-3 grid">
                   <UButton
                     label="Add Discount"
                     icon="material-symbols:add"
@@ -343,13 +347,8 @@ const productListAction = [
                 </div>
 
                 <div class="mt-3 flex gap-3">
-                  <UButton 
-                    label="Clear" 
-                    color="gray" 
-                  />
-                  <UButton 
-                    label="Proceed to Checkout" 
-                  />
+                  <UButton label="Clear" color="gray" />
+                  <UButton label="Proceed to Checkout" />
                 </div>
               </div>
             </div>
