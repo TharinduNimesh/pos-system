@@ -78,6 +78,11 @@ const lowStockData = [
     product: "OnePlus 9 case",
     remaining: "5",
   },
+  {
+    id: 5,
+    product: "iPhone 12 Pro case",
+    remaining: "12",
+  },
 ];
 
 const mostSellingProductColumns = [
@@ -115,6 +120,11 @@ const mostSellingProducts = [
     id: 4,
     product: "OnePlus 9 case",
     branch: "Kandy",
+  },
+  {
+    id: 5,
+    product: "iPhone 12 Pro case",
+    branch: "Kurunegala",
   },
 ];
 
@@ -169,6 +179,60 @@ const latestSales = [
               <div class="flex justify-between">
                 <div class="flex flex-col">
                   <h3 class="text-sm uppercase text-gray-500 font-semibold">
+                    Total Sales
+                  </h3>
+                  <span class="text-xl font-bold"> Rs. 1,399,020.00 </span>
+                </div>
+                <div class="flex justify-center items-center">
+                  <Icon name="teenyicons:money-stack-solid" class="text-3xl" />
+                </div>
+              </div>
+              <div
+                class="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-3"
+              >
+                <div
+                  class="flex flex-col items-center p-5 rounded-lg bg-gray-200/30 dark:bg-gray-900/30 border border-primary/10"
+                >
+                  <div
+                    class="w-10 h-10 flex justify-center items-center rounded-full bg-primary/20 text-primary"
+                  >
+                    <Icon
+                      name="material-symbols:attach-money"
+                      class="text-xl"
+                    />
+                  </div>
+                  <h3
+                    class="text-xs uppercase text-gray-500 font-semibold mt-2"
+                  >
+                    Today Sales
+                  </h3>
+                  <span class="text-xl font-bold"> 11,200 </span>
+                </div>
+                <div
+                  class="flex flex-col items-center p-5 rounded-lg bg-gray-200/30 dark:bg-gray-900/30 border border-primary/10"
+                >
+                  <div
+                    class="w-10 h-10 flex justify-center items-center rounded-full bg-primary/20 text-primary"
+                  >
+                    <Icon
+                      name="material-symbols:stacked-line-chart"
+                      class="text-xl"
+                    />
+                  </div>
+                  <h3
+                    class="text-xs uppercase text-gray-500 font-semibold mt-2"
+                  >
+                    Monthly Sales
+                  </h3>
+                  <span class="text-xl font-bold"> 132,200 </span>
+                </div>
+              </div>
+            </UContent>
+
+            <UContent>
+              <div class="flex justify-between">
+                <div class="flex flex-col">
+                  <h3 class="text-sm uppercase text-gray-500 font-semibold">
                     Total Revenue
                   </h3>
                   <span class="text-xl font-bold"> Rs. 399,020.00 </span>
@@ -196,7 +260,7 @@ const latestSales = [
                   >
                     Today Revenue
                   </h3>
-                  <span class="text-xl font-bold"> 1,200 </span>
+                  <span class="text-xl font-bold"> 5,200 </span>
                 </div>
                 <div
                   class="flex flex-col items-center p-5 rounded-lg bg-gray-200/30 dark:bg-gray-900/30 border border-primary/10"
@@ -214,7 +278,7 @@ const latestSales = [
                   >
                     Monthly Revenue
                   </h3>
-                  <span class="text-xl font-bold"> 1,200 </span>
+                  <span class="text-xl font-bold"> 32,200 </span>
                 </div>
               </div>
             </UContent>
@@ -247,6 +311,7 @@ const latestSales = [
 
           <div class="flex flex-col gap-3 col-span-full lg:col-span-3">
             <!-- Total Revenue Chart -->
+            <ChartTotalSales />
             <ChartTotalRevenue />
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -276,7 +341,7 @@ const latestSales = [
               </UContent>
             </div>
 
-            <UContent>
+            <!-- <UContent>
               <div class="flex flex-col gap-3">
                 <h3
                   class="text-lg uppercase text-gray-800 dark:text-gray-200 font-semibold"
@@ -285,7 +350,7 @@ const latestSales = [
                 </h3>
                 <UTable :columns="latestSalesColumns" :rows="latestSales" />
               </div>
-            </UContent>
+            </UContent> -->
           </div>
         </div>
       </div>
