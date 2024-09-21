@@ -24,6 +24,10 @@ const routes = [
         name: "Manage Products",
         path: "/app/products",
       },
+      {
+        name: "Manage Stocks",
+        path: "/app/products/manage-stock",
+      },
     ],
   },
   {

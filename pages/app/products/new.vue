@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import UEditor from "~/components/UEditor.vue";
-
 const category = [
   "Wade Cooper",
   "Arlene Mccoy",
@@ -16,6 +13,7 @@ const category = [
 ];
 const selected = ref<string[]>([]);
 const imagePreview = ref<string | null>(null);
+const isAddCategoryModalOpen = ref(false);
 
 const handleFileChange = (event: Event) => {
   const target = event.target as HTMLInputElement;
@@ -28,8 +26,6 @@ const handleFileChange = (event: Event) => {
 const removeImage = () => {
   imagePreview.value = null;
 };
-
-const isOpen = ref(false);
 </script>
 
 <template>
@@ -42,14 +38,13 @@ const isOpen = ref(false);
           >
             Add New Product
           </h3>
-          <div
-            class="flex gap-2 text-blue-700"
-            label="Open"
-            @click="isOpen = true"
-          >
-            <Icon name="material-symbols:add" class="cursor-pointer mt-1" />
-            <p class="cursor-pointer font-bold">Add Category</p>
-          </div>
+          <UButton
+            label="Add Category"
+            icon="material-symbols:add"
+            color="primary"
+            variant="ghost"
+            @click="isAddCategoryModalOpen = true"
+          />
         </div>
         <div class="grid lg:grid-cols-4 sm:grid-cols-1 gap-3">
           <div class="grid lg:col-span-1 sm:col-span-1">
@@ -111,8 +106,6 @@ const isOpen = ref(false);
             </label>
           </div>
           <div class="grid lg:col-span-3 sm:col-span-1">
-            
-
             <div class="mb-4">
               <h3 class="text-xs uppercase text-gray-500 font-semibold mb-1">
                 Product Name
@@ -147,11 +140,10 @@ const isOpen = ref(false);
           <UEditor />
           <div class="flex justify-end gap-4 mt-4">
             <UButton
-              color="red"
-              variant="solid"
-              icon="i-heroicons-trash-20-solid"
+              label="Clear"
+              color="gray"
             />
-            <UButton label="Publish" variant="solid" class="uppercase" />
+            <UButton label="Add This Product" />
           </div>
         </div>
       </UContent>
@@ -160,23 +152,49 @@ const isOpen = ref(false);
 
   <!-- Modal Here -->
   <div>
-    <UModal v-model="isOpen" :transition="false">
-      <div class="h-full p-4">
-        <h3
-          class="text-lg uppercase text-gray-800 dark:text-gray-200 font-semibold mb-3"
-        >
-          Add New Category
-        </h3>
-        <div class="mb-6 mt-11">
-          <h3 class="text-xs uppercase text-gray-500 font-semibold mb-1">
-            Category
-          </h3>
-          <UInput />
+    <UModal v-model="isAddCategoryModalOpen" :transition="false">
+      <UCard
+        :ui="{
+          ring: '',
+        }"
+      >
+        <template #header>
+          <div class="flex items-center justify-between">
+            <h3 class="text-lg font-semibold">Add New Category</h3>
+            <UButton
+              color="gray"
+              variant="ghost"
+              icon="i-heroicons-x-mark-20-solid"
+              class="-my-1"
+              @click="isAddCategoryModalOpen = false"
+            />
+          </div>
+        </template>
+
+        <div class="flex flex-col gap-3">
+          <UFormGroup
+            label="Category Name"
+            :ui="{
+              label: {
+                base: 'text-xs text-gray-600 dark:text-gray-400',
+              },
+            }"
+          >
+            <UInput placeholder="Enter Category Name" />
+          </UFormGroup>
         </div>
-        <div class="flex uppercase justify-end">
-          <UButton label="Add Category" variant="solid" />
-        </div>
-      </div>
+
+        <template #footer>
+          <div class="flex justify-end gap-3">
+            <UButton
+              label="Cancel"
+              color="gray"
+              @click="isAddCategoryModalOpen = false"
+            />
+            <UButton label="Add New Category" />
+          </div>
+        </template>
+      </UCard>
     </UModal>
   </div>
 </template>

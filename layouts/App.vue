@@ -9,7 +9,7 @@ const sidebarStore = useSidebarStore();
       @toggle-sidebar="sidebarStore.toggle"
     />
     <div class="flex-1 flex h-screen flex-col justify-between">
-      <div class="w-full flex flex-col overflow-hidden">
+      <div class="w-full h-full flex flex-col overflow-hidden">
         <!-- Header Start -->
         <div class="header-container relative px-5 pt-5 pb-2">
           <AppHeader @toggle-sidebar="sidebarStore.toggle" />
@@ -17,7 +17,7 @@ const sidebarStore = useSidebarStore();
         <!-- Header End -->
 
         <div
-          class="w-full flex flex-col gap-5 overflow-hidden overflow-y-scroll p-5"
+          class="w-full flex-1 flex flex-col justify-between gap-5 overflow-hidden overflow-y-scroll p-5"
         >
           <!-- Content Start -->
           <slot />
