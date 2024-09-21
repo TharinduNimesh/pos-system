@@ -48,15 +48,10 @@ const removeImage = () => {
         </div>
         <div class="grid lg:grid-cols-4 sm:grid-cols-1 gap-3">
           <div class="grid lg:col-span-1 sm:col-span-1">
-            <h3 class="text-xs uppercase text-gray-500 font-semibold mb-1">
-              Product Name
-            </h3>
-            <label
-              for="fileField"
-              class="attachment block bg-gray-200/30 dark:bg-gray-900/30"
-            >
+            <h3 class="text-sm font-medium mb-1">Product Image</h3>
+            <label for="fileField" class="attachment block">
               <div
-                class="row btn-file border h-48 w-full border-dashed border-gray-300 rounded-lg p-1 text-center cursor-pointer relative"
+                class="row btn-file border h-[193px] w-full bg-gray-200/30 dark:bg-gray-900/30 border-dashed border-gray-300 rounded-lg p-1 text-center cursor-pointer relative"
               >
                 <!-- Preview Area -->
                 <div
@@ -105,44 +100,36 @@ const removeImage = () => {
               />
             </label>
           </div>
-          <div class="grid lg:col-span-3 sm:col-span-1">
-            <div class="mb-4">
-              <h3 class="text-xs uppercase text-gray-500 font-semibold mb-1">
-                Product Name
-              </h3>
-              <UInput />
-            </div>
 
-            <div class="mb-4">
-              <h3 class="text-xs uppercase text-gray-500 font-semibold mb-1">
-                Brand
-              </h3>
-              <UInput />
+          <div class="grid lg:col-span-3 sm:col-span-1">
+            <div class="mb-3">
+              <UFormGroup label="Product Name" name="productName">
+                <UInput />
+              </UFormGroup>
+            </div>
+            <div class="mb-3">
+              <UFormGroup label="Brand" name="brand">
+                <UInput />
+              </UFormGroup>
             </div>
             <div>
-              <h3 class="text-xs uppercase text-gray-500 font-semibold mb-1">
-                select category
-              </h3>
-              <USelectMenu
-                v-model="selected"
-                :options="category"
-                multiple
-                placeholder="Select category"
-                size="lg"
-              />
+              <UFormGroup label="Category" name="category">
+                <USelectMenu
+                  v-model="selected"
+                  :options="category"
+                  multiple
+                  placeholder="Select category"
+                  size="lg"
+                />
+              </UFormGroup>
             </div>
           </div>
         </div>
         <div class="mt-4">
-          <h3 class="text-xs uppercase text-gray-500 font-semibold mb-1">
-            Description
-          </h3>
+          <h3 class="text-sm font-medium mb-1">Description</h3>
           <UEditor />
           <div class="flex justify-end gap-4 mt-4">
-            <UButton
-              label="Clear"
-              color="gray"
-            />
+            <UButton label="Clear" color="gray" />
             <UButton label="Add This Product" />
           </div>
         </div>

@@ -1,6 +1,10 @@
 <script setup lang="ts">
 const columns = [
   {
+    key: "id",
+    label: "#",
+  },
+  {
     key: "productName",
     label: "PRODUCT NAME",
   },
@@ -13,6 +17,10 @@ const columns = [
     label: "CATEGORY",
   },
   {
+    key: "qty",
+    label: "QUANTITY",
+  },
+  {
     key: "actions",
   },
 ];
@@ -22,36 +30,42 @@ const products = [
     id: 1,
     productName: "Laptop Pro 15",
     brand: "TechBrand",
+    qty: "10",
     category: "Electronics",
   },
   {
     id: 2,
     productName: "Wireless Earbuds",
     brand: "SoundMax",
+    qty: "5",
     category: "Accessories",
   },
   {
     id: 3,
     productName: "Smartphone X",
     brand: "MobileTech",
+    qty: "6",
     category: "Mobile",
   },
   {
     id: 4,
     productName: "Mechanical Keyboard",
     brand: "KeyMasters",
+    qty: "9",
     category: "Accessories",
   },
   {
     id: 5,
     productName: "4K Monitor",
     brand: "Visionary",
+    qty: "7",
     category: "Electronics",
   },
   {
     id: 6,
     productName: "Gaming Chair",
     brand: "ComfortPlus",
+    qty: "11",
     category: "Furniture",
   },
 ];
@@ -103,7 +117,7 @@ const rows = computed(() => {
         >
           Add New Product
         </h3>
-        <div class="flex gap-2 justify-end">
+        <div class="flex gap-2 justify-end mb-3">
           <UInput />
           <UButton icon="gravity-ui:magnifier" />
         </div>
