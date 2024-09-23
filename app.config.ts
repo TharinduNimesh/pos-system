@@ -16,5 +16,11 @@ export default defineAppConfig({
         size: "lg",
       },
     },
+    selectMenu: {
+      default: {
+        size: "lg",
+        color: "gray",
+      },
+    }
   },
 });

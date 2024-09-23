@@ -164,7 +164,7 @@ const productListAction = [
         <UContent>
           <div class="flex flex-col">
             <h3
-              class="text-lg uppercase text-gray-800 dark:text-gray-200 font-semibold"
+              class="text-xl uppercase text-gray-800 dark:text-gray-200 font-semibold"
             >
               Product Details
             </h3>
@@ -269,7 +269,7 @@ const productListAction = [
             >
               <div class="flex justify-between items-center">
                 <h3
-                  class="text-lg uppercase text-gray-800 dark:text-gray-200 font-semibold"
+                  class="text-xl uppercase text-gray-800 dark:text-gray-200 font-semibold"
                 >
                   Products List
                 </h3>

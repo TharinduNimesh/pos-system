@@ -1,8 +1,8 @@
 <script setup lang="ts">
 const isMoreInformationModelOpen = ref(false);
 const isEditInformationModelOpen = ref(false);
-const Role = ['Cashiers','Manager']
-const selected = ref(Role[0])
+const Role = ["Cashiers", "Manager"];
+const selected = ref(Role[0]);
 
 const productListAction = [
   [
@@ -49,11 +49,6 @@ const newUsercolumns = [
     key: "number",
     label: "Contact Number",
   },
-  {
-    key: "role",
-    label: "Role",
-  },
-
   {
     key: "actions",
     label: "Actions",
@@ -108,22 +103,9 @@ const newUser = [
               >
                 Manage Users
               </h3>
-              <UContent>
-                <div class="flex justify-between">
-                  <div class="flex flex-col">
-                    <h3 class="text-sm uppercase text-gray-500 font-semibold">
-                      Cashier Count
-                    </h3>
-                  </div>
-                  <div class="flex justify-center items-center">
-                    <Icon
-                      name="material-symbols:user-attributes-rounded"
-                      class="text-3xl"
-                    />
-                  </div>
-                </div>
+              <div class="p-3 border border-primary/10 rounded-lg">
                 <div
-                  class="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-3"
+                  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-3"
                 >
                   <div
                     class="flex flex-col items-center p-5 rounded-lg bg-gray-200/30 dark:bg-gray-900/30 border border-primary/10"
@@ -139,7 +121,7 @@ const newUser = [
                     <h3
                       class="text-xs uppercase text-gray-500 font-semibold mt-2"
                     >
-                      Maxximum Cashier Count
+                      Maximum Cashier Count
                     </h3>
                     <span class="text-xl font-bold"> 10 </span>
                   </div>
@@ -162,9 +144,22 @@ const newUser = [
                     <span class="text-xl font-bold"> 07 </span>
                   </div>
                 </div>
-              </UContent>
+              </div>
 
-              <UTable :columns="newUsercolumns" :rows="newUser">
+              <UTable :columns="newUsercolumns" :rows="newUser" class="mt-5">
+                <template #name-data="{ row }">
+                  <div class="flex flex-col">
+                    <div class="text-gray-800 dark:text-gray-200">
+                      {{ row.name }}
+                    </div>
+                    <div
+                      class="text-gray-500 dark:text-gray-400 text-xs font-semibold"
+                    >
+                      {{ row.role }}
+                    </div>
+                  </div>
+                </template>
+
                 <template #actions-data="{ row }">
                   <div class="flex gap-3">
                     <UDropdown
@@ -213,29 +208,20 @@ const newUser = [
 
             <div class="flex flex-col gap-3">
               <div>
-                <div class="grid lg:grid-cols-2 grid-cols-1 gap-6 mt-6">
+                <div class="grid lg:grid-cols-2 grid-cols-1 gap-3">
                   <UFormGroup label="Name">
-                    <UInput
-                      disabled
-                      icon="material-symbols:account-circle"
-                    />
+                    <UInput disabled icon="material-symbols:account-circle" />
                   </UFormGroup>
 
                   <UFormGroup label="NIC">
-                    <UInput
-                      disabled
-                      icon="material-symbols:id-card-outline"
-                    />
+                    <UInput disabled icon="material-symbols:id-card-outline" />
                   </UFormGroup>
                 </div>
 
                 <div class="col-span-2 mt-6">
                   <div class="grid gap-6">
                     <UFormGroup label="Address">
-                      <UInput
-                        disabled
-                        icon="icomoon-free:location"
-                      />
+                      <UInput disabled icon="icomoon-free:location" />
                     </UFormGroup>
                     <UFormGroup label="Email">
                       <UInput
@@ -244,10 +230,7 @@ const newUser = [
                       />
                     </UFormGroup>
                     <UFormGroup label="Branch">
-                      <UInput
-                        disabled
-                        icon="ph:building-office-fill"
-                      />
+                      <UInput disabled icon="ph:building-office-fill" />
                     </UFormGroup>
                   </div>
                 </div>
@@ -267,11 +250,20 @@ const newUser = [
                 </div>
               </div>
             </div>
+
+            <template #footer>
+              <div class="flex justify-end gap-3">
+                <UButton
+                  label="Close"
+                  color="gray"
+                  @click="isMoreInformationModelOpen = false"
+                />
+              </div>
+            </template>
           </UCard>
         </UModal>
 
         <!-- EditInformationModel -->
-
         <UModal v-model="isEditInformationModelOpen">
           <UCard
             :ui="{
@@ -280,7 +272,7 @@ const newUser = [
           >
             <template #header>
               <div class="flex items-center justify-between">
-                <h3 class="text-lg font-semibold">User Information</h3>
+                <h3 class="text-lg font-semibold">Update User Information</h3>
                 <UButton
                   color="gray"
                   variant="ghost"
@@ -292,7 +284,7 @@ const newUser = [
             </template>
 
             <div>
-              <div class="grid lg:grid-cols-2 grid-cols-1 gap-6 mt-6">
+              <div class="grid lg:grid-cols-2 grid-cols-1 gap-3">
                 <UFormGroup label="Name">
                   <UInput
                     placeholder="Name"
@@ -301,14 +293,10 @@ const newUser = [
                 </UFormGroup>
 
                 <UFormGroup label="NIC">
-                  <UInput
-                    disabled
-                    icon="material-symbols:id-card-outline"
-                  />
+                  <UInput disabled icon="material-symbols:id-card-outline" />
                 </UFormGroup>
               </div>
-                
-            
+
               <div class="col-span-2 mt-6">
                 <div class="grid gap-6">
                   <UFormGroup label="Address">
@@ -326,21 +314,28 @@ const newUser = [
                 </div>
               </div>
               <div class="grid lg:grid-cols-2 grid-cols-1 gap-6 mt-6">
-              <UFormGroup label="Contact Number">
-                <UInput
-                  placeholder="011- XXXXXXX"
-                  icon="material-symbols-light:phone-enabled-sharp"
-                />
-              </UFormGroup>
-              <UFormGroup label="Role">
-                <UInputMenu v-model="selected" :options="Role" />
-              </UFormGroup>
+                <UFormGroup label="Contact Number">
+                  <UInput
+                    placeholder="011- XXXXXXX"
+                    icon="material-symbols-light:phone-enabled-sharp"
+                  />
+                </UFormGroup>
+                <UFormGroup label="Role">
+                  <USelectMenu size="lg" color="gray" v-model="selected" :options="Role" />
+                </UFormGroup>
               </div>
-              <div class="flex justify-end mt-4 gap-6">
-              <UButton color="gray">Clear</UButton>
-              <UButton variant="solid">Edit User</UButton>
             </div>
-            </div>
+
+            <template #footer>
+              <div class="flex justify-end gap-3">
+                <UButton
+                  label="Cancel"
+                  color="gray"
+                  @click="isEditInformationModelOpen = false"
+                />
+                <UButton label="Save" />
+              </div>
+            </template>
           </UCard>
         </UModal>
       </div>

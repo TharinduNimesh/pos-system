@@ -34,7 +34,7 @@ const removeImage = () => {
       <UContent>
         <div class="flex justify-between">
           <h3
-            class="text-lg uppercase text-gray-800 dark:text-gray-200 font-semibold mb-3"
+            class="text-xl uppercase text-gray-800 dark:text-gray-200 font-semibold mb-3"
           >
             Add New Product
           </h3>
@@ -120,6 +120,7 @@ const removeImage = () => {
                   multiple
                   placeholder="Select category"
                   size="lg"
+                  color="gray"
                 />
               </UFormGroup>
             </div>

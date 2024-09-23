@@ -12,6 +12,26 @@ const routes = [
     path: "/app/sales-screen",
   },
   {
+    name: "Sales",
+    icon: "material-symbols:bar-chart-4-bars",
+    path: "/app/sells",
+    subRoutes: [
+      {
+        name: "Invoice",
+        path: "/app/sells/invoices",
+      },
+      {
+        name: "Discounts",
+        path: "/app/sells/discounts",
+      },
+    ],
+  },
+  {
+    name: "Expenses",
+    icon: "material-symbols:screen-share-rounded",
+    path: "/app/expenses",
+  },
+  {
     name: "Products",
     icon: "material-symbols:shopping-cart",
     path: "/app/products",
@@ -31,17 +51,17 @@ const routes = [
     ],
   },
   {
-    name: "Cashiers",
+    name: "Users",
     icon: "material-symbols:deployed-code-account",
-    path: "/app/cashiers",
+    path: "/app/users",
     subRoutes: [
       {
-        name: "Add New Cashier",
-        path: "/app/cashiers/new",
+        name: "Add New User",
+        path: "/app/users/new",
       },
       {
-        name: "Manage Cashiers",
-        path: "/app/cashiers",
+        name: "Manage Users",
+        path: "/app/users",
       },
     ],
   },

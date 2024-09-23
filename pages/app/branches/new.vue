@@ -55,12 +55,10 @@
                 />
               </UFormGroup>
               </div>
-              <div class="flex justify-end mt-6 gap-6">
-              <UButton  color="gray">Clear</UButton>
-              <UButton  variant="solid">Save Branch</UButton>
+              <div class="flex justify-end mt-4 gap-3">
+              <UButton color="gray">Clear</UButton>
+              <UButton variant="solid">Save Branch</UButton>
             </div>
-
-            
           </UContent>
         </div>
       </div>

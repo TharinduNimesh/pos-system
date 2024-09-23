@@ -113,7 +113,7 @@ const rows = computed(() => {
     <NuxtLayout name="app">
       <UContent>
         <h3
-          class="text-lg uppercase text-gray-800 dark:text-gray-200 font-semibold mb-3"
+          class="text-xl uppercase text-gray-800 dark:text-gray-200 font-semibold"
         >
           Manage Stock
         </h3>

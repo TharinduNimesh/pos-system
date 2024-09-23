@@ -107,22 +107,9 @@ const newBranches = [
                 Manage Branches
               </h3>
 
-              <UContent>
-                <div class="flex justify-between">
-                  <div class="flex flex-col">
-                    <h3 class="text-sm uppercase text-gray-500 font-semibold">
-                      Branch Count
-                    </h3>
-                  </div>
-                  <div class="flex justify-center items-center">
-                    <Icon
-                      name="icomoon-free:office"
-                      class="text-3xl"
-                    />
-                  </div>
-                </div>
+              <div class="p-3 border border-primary/10 rounded-lg">
                 <div
-                  class="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-3"
+                  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-3"
                 >
                   <div
                     class="flex flex-col items-center p-5 rounded-lg bg-gray-200/30 dark:bg-gray-900/30 border border-primary/10"
@@ -131,14 +118,14 @@ const newBranches = [
                       class="w-10 h-10 flex justify-center items-center rounded-full bg-primary/20 text-primary"
                     >
                       <Icon
-                        name="icomoon-free:office"
+                        name="material-symbols:user-attributes-rounded"
                         class="text-xl"
                       />
                     </div>
                     <h3
                       class="text-xs uppercase text-gray-500 font-semibold mt-2"
                     >
-                      Maximum Branch Count
+                      Maximum Branches Count
                     </h3>
                     <span class="text-xl font-bold"> 10 </span>
                   </div>
@@ -149,19 +136,19 @@ const newBranches = [
                       class="w-10 h-10 flex justify-center items-center rounded-full bg-primary/20 text-primary"
                     >
                       <Icon
-                        name="icomoon-free:office"
+                        name="material-symbols:manage-accounts"
                         class="text-xl"
                       />
                     </div>
                     <h3
                       class="text-xs uppercase text-gray-500 font-semibold mt-2"
                     >
-                      Current Cashier Count
+                      Current Branches Count
                     </h3>
                     <span class="text-xl font-bold"> 07 </span>
                   </div>
                 </div>
-              </UContent>
+              </div>
 
               <UTable :columns="newBranchcolumns" :rows="newBranches">
                 <template #actions-data="{ row }">
@@ -213,67 +200,76 @@ const newBranches = [
             </template>
 
             <div class="flex flex-col gap-3">
-              <div>
-                <div class="grid lg:grid-cols-2 grid-cols-1 gap-6 mt-3">
-                  <UFormGroup label="Branch Name">
-                    <UInput
-                      disabled
-                      placeholder="Branch Name"
-                      icon="ph:building-office-fill"
-                    />
-                  </UFormGroup>
+              <div class="grid lg:grid-cols-2 grid-cols-1 gap-x-3 gap-y-5">
+                <UFormGroup label="Branch Name">
+                  <UInput
+                    disabled
+                    placeholder="Branch Name"
+                    icon="ph:building-office-fill"
+                  />
+                </UFormGroup>
 
-                  <UFormGroup label="Manager Name">
-                    <UInput
-                      disabled
-                      placeholder="Manager Name"
-                      icon="solar:user-circle-bold"
-                    />
-                  </UFormGroup>
-                </div>
-                <div class="col-span-2 mt-6">
-                  <div class="grid gap-6">
-                    <UFormGroup label="Address">
-                      <UInput
-                        disabled
-                        placeholder="Address"
-                        icon="icomoon-free:location"
-                      />
-                    </UFormGroup>
-                  </div>
-                </div>
-                <div class="grid lg:grid-cols-2 grid-cols-1 gap-6 mt-6">
-                  <UFormGroup label="Email">
-                    <UInput
-                      disabled
-                      placeholder="you@example.com"
-                      icon="material-symbols-light:mark-email-unread"
-                    />
-                  </UFormGroup>
-                  <UFormGroup label="Contact Number">
-                    <UInput
-                      disabled
-                      placeholder="011- XXXXXXX"
-                      icon="material-symbols-light:phone-enabled-sharp"
-                    />
-                  </UFormGroup>
-                  <UFormGroup label="Opening Hours">
-                    <UInput
-                      disabled
-                      placeholder="08:00 - 18:00"
-                      icon="material-symbols-light:calendar-clock"
-                    />
-                  </UFormGroup>
-                  <UFormGroup label="Profit">
-                    <UInput
-                      disabled
-                      placeholder="100000.00 LKR"
-                      icon="cil:dollar"
-                    />
-                  </UFormGroup>
-                </div>
+                <UFormGroup label="Manager Name">
+                  <UInput
+                    disabled
+                    placeholder="Manager Name"
+                    icon="solar:user-circle-bold"
+                  />
+                </UFormGroup>
+                <UFormGroup label="Address" class="col-span-2">
+                  <UInput
+                    disabled
+                    placeholder="Address"
+                    icon="icomoon-free:location"
+                  />
+                </UFormGroup>
+                <UFormGroup label="Email" class="col-span-2">
+                  <UInput
+                    disabled
+                    placeholder="you@example.com"
+                    icon="material-symbols-light:mark-email-unread"
+                  />
+                </UFormGroup>
+                <UFormGroup label="Contact Number">
+                  <UInput
+                    disabled
+                    placeholder="011- XXXXXXX"
+                    icon="material-symbols-light:phone-enabled-sharp"
+                  />
+                </UFormGroup>
+                <UFormGroup label="Opening Hours">
+                  <UInput
+                    disabled
+                    placeholder="08:00 - 18:00"
+                    icon="material-symbols-light:calendar-clock"
+                  />
+                </UFormGroup>
+                <UFormGroup label="Sales">
+                  <UInput
+                    disabled
+                    placeholder="20,0000.00 LKR"
+                    icon="cil:dollar"
+                  />
+                </UFormGroup>
+                <UFormGroup label="Profit">
+                  <UInput
+                    disabled
+                    placeholder="10,0000.00 LKR"
+                    icon="cil:dollar"
+                  />
+                </UFormGroup>
               </div>
             </div>
+
+            <template #footer>
+              <div class="flex justify-end gap-3">
+                <UButton
+                  label="Close"
+                  color="gray"
+                  @click="isMoreBranchInformationModelOpen = false"
+                />
+              </div>
+            </template>
           </UCard>
         </UModal>
 
@@ -345,12 +341,19 @@ const newBranches = [
                     />
                   </UFormGroup>
                 </div>
-                <div class="flex justify-end mt-6 gap-6">
-                  <UButton color="gray">Clear</UButton>
-                  <UButton variant="solid">Update Branch</UButton>
-                </div>
               </div>
             </div>
+
+            <template #footer>
+              <div class="flex justify-end gap-3">
+                <UButton
+                  label="Close"
+                  color="gray"
+                  @click="isEditBranchInformationModelOpen = false"
+                />
+                <UButton label="Save" />
+              </div>
+            </template>
           </UCard>
         </UModal>
       </div>

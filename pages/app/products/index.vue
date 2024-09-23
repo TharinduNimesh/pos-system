@@ -5,20 +5,20 @@ const columns = [
     label: "#",
   },
   {
-    key: "productName",
-    label: "PRODUCT NAME",
+    key: "name",
+    label: "Name",
   },
   {
-    key: "brand",
-    label: "BRAND",
+    key: "description",
+    label: "Description",
   },
   {
     key: "category",
-    label: "CATEGORY",
+    label: "Category",
   },
   {
     key: "qty",
-    label: "QUANTITY",
+    label: "Quantity",
   },
   {
     key: "actions",
@@ -28,45 +28,57 @@ const columns = [
 const products = [
   {
     id: 1,
-    productName: "Laptop Pro 15",
+    name: "Laptop Pro 15",
     brand: "TechBrand",
     qty: "10",
     category: "Electronics",
+    stocks: 50,
+    description: "High-performance laptop with 15-inch display.",
   },
   {
     id: 2,
-    productName: "Wireless Earbuds",
+    name: "Wireless Earbuds",
     brand: "SoundMax",
     qty: "5",
     category: "Accessories",
+    stocks: 30,
+    description: "Compact and high-quality wireless earbuds.",
   },
   {
     id: 3,
-    productName: "Smartphone X",
+    name: "Smartphone X",
     brand: "MobileTech",
     qty: "6",
     category: "Mobile",
+    stocks: 20,
+    description: "Latest smartphone with advanced features.",
   },
   {
     id: 4,
-    productName: "Mechanical Keyboard",
+    name: "Mechanical Keyboard",
     brand: "KeyMasters",
     qty: "9",
     category: "Accessories",
+    stocks: 40,
+    description: "Durable mechanical keyboard with customizable keys.",
   },
   {
     id: 5,
-    productName: "4K Monitor",
+    name: "4K Monitor",
     brand: "Visionary",
     qty: "7",
     category: "Electronics",
+    stocks: 25,
+    description: "Ultra HD 4K monitor with vibrant colors.",
   },
   {
     id: 6,
-    productName: "Gaming Chair",
+    name: "Gaming Chair",
     brand: "ComfortPlus",
     qty: "11",
     category: "Furniture",
+    stocks: 15,
+    description: "Ergonomic gaming chair with adjustable features.",
   },
 ];
 
@@ -113,9 +125,9 @@ const rows = computed(() => {
     <NuxtLayout name="app">
       <UContent>
         <h3
-          class="text-lg uppercase text-gray-800 dark:text-gray-200 font-semibold mb-3"
+          class="text-xl uppercase text-gray-800 dark:text-gray-200 font-semibold"
         >
-          Add New Product
+          Manage Products
         </h3>
         <div class="flex gap-2 justify-end mb-3">
           <UInput />
@@ -123,6 +135,23 @@ const rows = computed(() => {
         </div>
         <div class="grid grid-cols-1">
           <UTable :rows="products" :columns="columns">
+            <template #name-data="{ row }">
+              <div class="flex flex-col">
+                <div class="text-gray-800 dark:text-gray-200">
+                  {{ row.name }}
+                </div>
+                <div
+                  class="text-gray-500 dark:text-gray-400 text-xs font-semibold"
+                >
+                  {{ row.brand }}
+                </div>
+              </div>
+            </template>
+
+            <template #qty-data="{ row }">
+              {{ row.qty }} in stock ({{ row.stocks }} available)
+            </template>
+
             <template #actions-data="{ row }">
               <UDropdown :items="items(row)">
                 <UButton

@@ -12,15 +12,12 @@ const items = [
     {
       label: "Settings",
       icon: "i-heroicons-cog-8-tooth",
+      to: "/app/settings",
     },
   ],
   [
     {
-      label: "Documentation",
-      icon: "i-heroicons-book-open",
-    },
-    {
-      label: "Changelog",
+      label: "Support",
       icon: "i-heroicons-megaphone",
     },
     {

@@ -32,7 +32,7 @@ const editor = useEditor({
   editorProps: {
     attributes: {
       class:
-        "h-[400px] border border-slate-300 dark:border-gray-700 bg-gray-50 dark:bg-[#2b2a33] p-5 border-t-none rounded-bl-lg rounded-br-lg outline-none overflow-y-auto",
+        "h-[400px] border border-slate-300 dark:border-gray-700 bg-gray-50 dark:bg-[#27272a] p-5 border-t-none rounded-bl-lg rounded-br-lg outline-none overflow-y-auto",
     },
   },
   content: props.modelValue,
@@ -132,7 +132,7 @@ function chooseColor() {
   <div class="w-full markdown flex flex-col">
     <div
       v-if="editor"
-      class="px-5 py-3 flex gap-3 flex-wrap border border-b-0 border-slate-300 dark:border-gray-700 bg-gray-50 dark:bg-[#2b2a33] rounded-t-lg"
+      class="px-5 py-3 flex gap-3 flex-wrap border border-b-0 border-slate-300 dark:border-gray-700 bg-gray-50 dark:bg-[#27272a] rounded-t-lg"
     >
       <UButton
         @click="editor.chain().focus().toggleBold().run()"
