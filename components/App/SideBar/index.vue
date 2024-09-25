@@ -46,7 +46,7 @@ const routes = [
       },
       {
         name: "Manage Stocks",
-        path: "/app/products/manage-stock",
+        path: "/app/products/stocks",
       },
     ],
   },

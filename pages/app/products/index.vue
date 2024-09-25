@@ -113,25 +113,27 @@ const products = [
   },
 ];
 
-const items = (row) => [
+const productListAction = (row: (typeof products)[0]) => [
   [
     {
-      label: "Update",
-      icon: "material-symbols:deployed-code-update-outline",
+      label: "More Information",
+      icon: "flowbite:info-circle-outline",
+      click: () => {
+        isInfoProductModalOpen.value = true;
+      },
+    },
+  ],
+  [
+    {
+      label: "Edit",
+      icon: "material-symbols:edit-square-outline-rounded",
       click: () => {
         isUpdateProductModalOpen.value = true;
       },
     },
     {
-      label: "Delete",
-      icon: "i-heroicons-trash-20-solid",
-      click: () => {
-        isDeleteProductModalOpen.value = true;
-      },
-    },
-    {
-      label: "Info",
-      icon: "material-symbols:info",
+      label: "Remove",
+      icon: "material-symbols:delete-outline-rounded",
       click: () => {
         isInfoProductModalOpen.value = true;
       },
@@ -157,12 +159,12 @@ const rows = computed(() => {
           Manage Products
         </h3>
         <div class="flex gap-2 justify-end mb-3">
-          <USelect
+          <USelectMenu
             :options="['Mobile Phone', 'Laptop', 'Tv']"
             size="lg"
             placeholder="Sort by Category"
           />
-          <USelect
+          <USelectMenu
             :options="['Colombo', 'Kandy', 'Matara']"
             size="lg"
             placeholder="Sort by Branch"
@@ -190,7 +192,7 @@ const rows = computed(() => {
             </template>
 
             <template #actions-data="{ row }">
-              <UDropdown :items="items(row)">
+              <UDropdown :items="productListAction(row)">
                 <UButton
                   color="gray"
                   variant="ghost"
@@ -216,7 +218,7 @@ const rows = computed(() => {
   <!-- Modal Here -->
   <!-- Delete Product Here -->
   <div>
-    <UModal v-model="isDeleteProductModalOpen" :transition="false">
+    <UModal v-model="isDeleteProductModalOpen">
       <UCard
         :ui="{
           ring: '',
@@ -258,7 +260,7 @@ const rows = computed(() => {
 
   <!-- Update Product Here -->
   <div>
-    <UModal v-model="isUpdateProductModalOpen" :transition="false">
+    <UModal v-model="isUpdateProductModalOpen">
       <UCard
         :ui="{
           ring: '',
@@ -380,7 +382,7 @@ const rows = computed(() => {
 
   <!-- Info Product Here -->
   <div>
-    <UModal v-model="isInfoProductModalOpen" :transition="false">
+    <UModal :ui="{ width: 'max-w-xl' }" v-model="isInfoProductModalOpen">
       <UCard :ui="{ ring: '' }">
         <template #header>
           <div class="flex items-center justify-between">

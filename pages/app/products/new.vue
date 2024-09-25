@@ -142,7 +142,7 @@ const removeImage = () => {
 
   <!-- Modal Here -->
   <div>
-    <UModal v-model="isAddCategoryModalOpen" :transition="false">
+    <UModal v-model="isAddCategoryModalOpen">
       <UCard
         :ui="{
           ring: '',
