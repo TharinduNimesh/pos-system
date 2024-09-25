@@ -118,7 +118,7 @@ const newBranches = [
                       class="w-10 h-10 flex justify-center items-center rounded-full bg-primary/20 text-primary"
                     >
                       <Icon
-                        name="material-symbols:user-attributes-rounded"
+                        name="ph:building-office-fill"
                         class="text-xl"
                       />
                     </div>
@@ -136,7 +136,7 @@ const newBranches = [
                       class="w-10 h-10 flex justify-center items-center rounded-full bg-primary/20 text-primary"
                     >
                       <Icon
-                        name="material-symbols:manage-accounts"
+                        name="ph:building-office-fill"
                         class="text-xl"
                       />
                     </div>
