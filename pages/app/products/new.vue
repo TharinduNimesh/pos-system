@@ -11,9 +11,9 @@ const category = [
   "Claudie Smitham",
   "Emil Schaefer",
 ];
+const isAddCategoryModalOpen = ref(false);
 const selected = ref<string[]>([]);
 const imagePreview = ref<string | null>(null);
-const isAddCategoryModalOpen = ref(false);
 
 const handleFileChange = (event: Event) => {
   const target = event.target as HTMLInputElement;
@@ -104,12 +104,14 @@ const removeImage = () => {
           <div class="grid lg:col-span-3 sm:col-span-1">
             <div class="mb-3">
               <UFormGroup label="Product Name" name="productName">
-                <UInput />
+                <UInput
+                  placeholder="Google Pixel 6 Pro, 8GB, 128GB, Space Gray."
+                />
               </UFormGroup>
             </div>
             <div class="mb-3">
-              <UFormGroup label="Brand" name="brand">
-                <UInput />
+              <UFormGroup label="Brand" name="brand" hint="Optional">
+                <UInput placeholder="Google" />
               </UFormGroup>
             </div>
             <div>
