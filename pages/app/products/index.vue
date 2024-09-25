@@ -167,7 +167,7 @@ const rows = computed(() => {
             size="lg"
             placeholder="Sort by Branch"
           />
-          <UInput />
+          <UInput placeholder="Search..." />
           <UButton icon="gravity-ui:magnifier" />
         </div>
         <div class="grid grid-cols-1">
