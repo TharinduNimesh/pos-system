@@ -135,7 +135,7 @@ const productListAction = (row: (typeof products)[0]) => [
       label: "Remove",
       icon: "material-symbols:delete-outline-rounded",
       click: () => {
-        isInfoProductModalOpen.value = true;
+        isDeleteProductModalOpen.value = true;
       },
     },
   ],
@@ -170,7 +170,6 @@ const rows = computed(() => {
             placeholder="Sort by Branch"
           />
           <UInput placeholder="Search..." />
-          <UButton icon="gravity-ui:magnifier" />
         </div>
         <div class="grid grid-cols-1">
           <UTable :rows="products" :columns="columns">
