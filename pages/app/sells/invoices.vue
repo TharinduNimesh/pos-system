@@ -177,7 +177,7 @@ const selectedProducts = [
                       class="w-10 h-10 flex justify-center items-center rounded-full bg-primary/20 text-primary"
                     >
                       <Icon
-                        name="material-symbols:user-attributes-rounded"
+                        name="material-symbols:bar-chart-4-bars-rounded"
                         class="text-xl"
                       />
                     </div>
@@ -195,7 +195,7 @@ const selectedProducts = [
                       class="w-10 h-10 flex justify-center items-center rounded-full bg-primary/20 text-primary"
                     >
                       <Icon
-                        name="material-symbols:manage-accounts"
+                        name="material-symbols:add-chart-outline-rounded"
                         class="text-xl"
                       />
                     </div>
@@ -281,9 +281,9 @@ const selectedProducts = [
 
             <div class="flex flex-col gap-3">
               <div>
-                <div class="grid lg:grid-cols-2 grid-cols-1 gap-3">
+                <div class="grid grid-cols-1 gap-3">
                   <UFormGroup label="Invoice ID">
-                    <UInput disabled icon="material-symbols:account-circle" />
+                    <UInput disabled icon="material-symbols:receipt-long-outline-rounded" />
                   </UFormGroup>
                 </div>
 
@@ -297,7 +297,7 @@ const selectedProducts = [
                         class="w-10 h-10 flex justify-center items-center rounded-full bg-primary/20 text-primary mb-2"
                       >
                         <Icon
-                          name="material-symbols:stacked-line-chart"
+                          name="material-symbols:attach-money"
                           class="text-xl"
                         />
                       </div>
@@ -317,7 +317,7 @@ const selectedProducts = [
                         class="w-10 h-10 flex justify-center items-center rounded-full bg-primary/20 text-primary mb-2"
                       >
                         <Icon
-                          name="material-symbols:finance-mode"
+                          name="material-symbols:shoppingmode-sharp"
                           class="text-xl"
                         />
                       </div>
@@ -337,7 +337,7 @@ const selectedProducts = [
                       <div
                         class="w-10 h-10 flex justify-center items-center rounded-full bg-primary/20 text-primary mb-2"
                       >
-                        <Icon name="solar:hand-money-linear" class="text-2xl" />
+                        <Icon name="material-symbols:attach-money" class="text-2xl" />
                       </div>
                       <span class="text-md font-semibold"> 132,200 </span>
                       <h3
