@@ -5,6 +5,11 @@ enum BillingAction {
   ContinueWithoutBill,
 }
 
+enum ProductSearchMethod {
+  ByProductName,
+  ByStockID,
+}
+
 const billingOptions = [
   {
     label: "Use an E-Bill",
@@ -19,13 +24,24 @@ const billingOptions = [
     value: BillingAction.ContinueWithoutBill,
   },
 ];
-const productSearchMethod = ref(0);
+const productSearchMethod = ref<ProductSearchMethod>(
+  ProductSearchMethod.ByProductName
+);
 const isChangeStockModalOpen = ref(false);
 const isDiscountModalOpen = ref(false);
 const selectedStock = ref(2);
+const searchQuery = ref("");
 const selectedBillingAction = ref<(typeof billingOptions)[0]>(
   billingOptions[BillingAction.ContinueWithoutBill]
 );
+
+const isProductChooserOpen = computed(() => {
+  if (productSearchMethod.value === ProductSearchMethod.ByStockID) {
+    return false;
+  }
+
+  return searchQuery.value.length > 0;
+});
 
 const selectedProductColumns = [
   {
@@ -173,19 +189,19 @@ const productListAction = [
                 class="text-center cursor-pointer"
                 :class="{
                   'text-gray-700 font-semibold dark:text-slate-200 px-1 pb-1 border-b-2 border-b-primary/60':
-                    productSearchMethod === 0,
+                    productSearchMethod === ProductSearchMethod.ByProductName,
                 }"
-                @click="productSearchMethod = 0"
+                @click="productSearchMethod = ProductSearchMethod.ByProductName"
               >
-                <span>By Product Name</span>
+                <span>By Product</span>
               </div>
               <div
                 class="text-center cursor-pointer"
                 :class="{
                   'text-gray-700 font-semibold dark:text-slate-200 px-1 pb-1 border-b-2 border-b-primary/60':
-                    productSearchMethod === 1,
+                    productSearchMethod === ProductSearchMethod.ByStockID,
                 }"
-                @click="productSearchMethod = 1"
+                @click="productSearchMethod = ProductSearchMethod.ByStockID"
               >
                 <span>By Stock ID</span>
               </div>
@@ -194,7 +210,11 @@ const productListAction = [
               <UButton color="primary" label="Get" />
               <UFormGroup
                 class="flex-1"
-                label="STOCK ITEM ID"
+                :label="
+                  productSearchMethod === ProductSearchMethod.ByProductName
+                    ? 'Product Name'
+                    : 'Stock Item ID'
+                "
                 :ui="{
                   label: {
                     base: 'text-xs text-gray-600 dark:text-gray-400',
@@ -202,8 +222,13 @@ const productListAction = [
                 }"
               >
                 <UInput
-                  placeholder="Enter Stock Item ID"
+                  :placeholder="
+                    productSearchMethod === ProductSearchMethod.ByProductName
+                      ? 'Enter Product Name'
+                      : 'Enter Stock ID'
+                  "
                   icon="material-symbols:search-rounded"
+                  v-model="searchQuery"
                 />
               </UFormGroup>
             </div>
@@ -396,6 +421,12 @@ const productListAction = [
         <!-- Add Discount Modal Start -->
         <AppDiscountModal v-model="isDiscountModalOpen" />
         <!-- Add Discount Modal End -->
+
+        <!-- Product Search Modal Start -->
+        <UModal v-model="isProductChooserOpen">
+          <AppProductChooser />
+        </UModal>
+        <!-- Product Search Modal End -->
       </div>
     </NuxtLayout>
   </div>
