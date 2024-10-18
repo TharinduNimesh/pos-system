@@ -51,6 +51,16 @@ h6 {
   display: none; /* Chrome, Safari, and Opera */
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 /* Markdown styles for Blog posts & Text Editor */
 .markdown hr {
   height: 1px;

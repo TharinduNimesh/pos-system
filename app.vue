@@ -11,5 +11,6 @@ function toggleColorMode() {
   <div>
     <NuxtRouteAnnouncer />
     <NuxtPage />
+    <UNotifications />
   </div>
 </template>
